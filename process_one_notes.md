@@ -215,3 +215,32 @@ https://docs.obspy.org/packages/autogen/obspy.signal.trigger.coincidence_trigger
 
 
 need HPC support to fix something 
+
+
+```
+    overlap: float, default=0.3
+        If set, detection, and picking are performed in overlapping windows.
+```
+
+no clue what this means
+
+
+---
+
+currently:
+why tf header writing not work asdsufds
+the solution presumably is to write a bash script to 1. read in the station coordinates 2. loop through the SAC trimmed files in some specified folder and 3. write the coordinates using the SAC executable
+
+to do before monday
+
+1)  Probably setup a private git repo so I can push script changes more easily onto the server + I get to have version control
+
+uh just need to authenticate on the gekko server lol
+
+
+2)  Try picking with different detection thresholds for EQTransformer
+3)  Try picking with another station e.g. TA02 for the same time period. Compare pick times /if they are similar.
+4)  Try picking with a longer time period (e.g. 2 days) 
+5)  Verify if (when meeting next week?) the EQtransformer picks are actual events 
+6)  Using the trimmed SAC files, try using the S and P pickers from OBSPY
+7)  Plot the frequency spectra for the trimmed EQTransformer event detections, as well as a sample of background noise just for comparison 
