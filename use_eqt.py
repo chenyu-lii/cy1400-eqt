@@ -151,6 +151,7 @@ def threshold_check(another_detection_folder, threshold_main = 0.3, threshold_p 
 			try:
 				pick_date_times.append(datetime.datetime.strptime(p_arrival.split(".")[0], "%Y-%m-%d %H:%M:%S"))
 			except:
+				continue
 
 
 		#for p_arrival in pick_date_times:
