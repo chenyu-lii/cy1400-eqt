@@ -147,8 +147,11 @@ def threshold_check(another_detection_folder, threshold_main = 0.3, threshold_p 
 			
 		pick_date_times = []
 
-		for p_arrival in df['p_arrival_time']:
-			pick_date_times.append(datetime.datetime.strptime(p_arrival.split(".")[0], "%Y-%m-%d %H:%M:%S"))
+		for p_arrival in df['event_start_time']:
+			try:
+				pick_date_times.append(datetime.datetime.strptime(p_arrival.split(".")[0], "%Y-%m-%d %H:%M:%S"))
+			except:
+
 
 		#for p_arrival in pick_date_times:
 
@@ -214,8 +217,8 @@ def threshold_check(another_detection_folder, threshold_main = 0.3, threshold_p 
 
 	# and presumably also plot in mpl or something 
 
-#thresholds = [(0.8, 0.4, 0.4), (0.6, 0.4, 0.4), (0.6, 0.15, 0.15), (0.2, 0.1, 0.1), (0.15, 0.05, 0.05)]
-thresholds = [(0.8, 0.4, 0.4)]
+thresholds = [(0.8, 0.4, 0.4), (0.6, 0.4, 0.4), (0.6, 0.15, 0.15), (0.2, 0.1, 0.1), (0.15, 0.05, 0.05)]
+#thresholds = [(0.8, 0.4, 0.4)]
 detection_folders = ["detection 20210116_{}".format(i) for i in range(len(thresholds))]
 
 for c, (t1, t2, t3) in enumerate(thresholds):
