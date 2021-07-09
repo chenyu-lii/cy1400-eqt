@@ -167,7 +167,7 @@ def preproc(csv_paths, station, output_folder, stations_json, overlap = 0.3, n_p
 				
 				# != is basically an XOR 
 				# goal is to catch edge cases
-				if (int(datetime.datetime.strftime(_start_time, "%j"))) in exclude_list != (int(datetime.datetime.strftime(_end_time, "%j")) in exclude_list):
+				if (int(datetime.datetime.strftime(_start_time, "%j"))) != int(datetime.datetime.strftime(_end_time, "%j")) :
 					timestamps.append(_start_time)
 					dt.append(_dt)
 				else:
