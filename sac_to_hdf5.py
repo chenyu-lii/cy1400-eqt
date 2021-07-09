@@ -157,7 +157,7 @@ def preproc(csv_paths, station, output_folder, stations_json, overlap = 0.3, n_p
 			for i in range(n_cuts):
 
 				_start_time = (start_time + i * (1 - overlap) * 60).datetime
-				_end_time = (end_time + (i+1) * (1 - overlap) * 60).datetime
+				_end_time = (start_time + (i+1) * (1 - overlap) * 60).datetime
 
 				_dt = (1 - overlap) * 60 * i
 
