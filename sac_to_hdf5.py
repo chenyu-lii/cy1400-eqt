@@ -157,14 +157,21 @@ def preproc(csv_paths, station, output_folder, stations_json, overlap = 0.3, n_p
 			for i in range(n_cuts):
 
 				_start_time = (start_time + i * (1 - overlap) * 60).datetime
+				_end_time = (end_time + (i+1) * (1 - overlap) * 60).datetime
 
 				_dt = (1 - overlap) * 60 * i
 
-				if int(datetime.datetime.strftime(_start_time, "%j")) in exclude_list:
+				#if int(datetime.datetime.strftime(_start_time, "%j")) in exclude_list:
+				#	continue
+				#	
+				
+				# != is basically an XOR 
+				# goal is to catch edge cases
+				if (int(datetime.datetime.strftime(_start_time, "%j"))) in exclude_list != (int(datetime.datetime.strftime(_end_time, "%j")) in exclude_list):
+					timestamps.append(_start_time)
+					dt.append(_dt)
+				else:
 					continue
-
-				timestamps.append(_start_time)
-				dt.append(_dt)
 
 			
 			# get the B E and KZTIME from the SAC header.
