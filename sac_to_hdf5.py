@@ -139,7 +139,6 @@ def preproc(csv_paths, station, output_folder, stations_json, overlap = 0.3, n_p
 		if partial_day_file != "":
 
 
-
 			start_time = st[0].stats.starttime # UTCDateTime object
 			end_time = st[0].stats.endtime
 
